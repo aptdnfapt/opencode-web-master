@@ -1,0 +1,47 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": true,
+  "mcp": {
+   "web-search-prime": {
+      "enabled": true ,
+      "type": "remote",
+      "url": "https://api.z.ai/api/mcp/web_search_prime/mcp",
+      "headers": {
+        "Authorization": "Bearer {env:ZAI_KEY}"
+      }
+    },
+    // for github repos 
+    "zread": { 
+      "type": "remote",
+          "enabled": true ,
+      "url": "https://api.z.ai/api/mcp/zread/mcp",
+      "headers": {
+        "Authorization": "Bearer {env:ZAI_KEY}"
+      }
+    },
+    // oss doscs 
+    "context7": {
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "enabled": true
+   },
+    // websearch oss search engine 
+    "searxng": {
+      "type": "local",
+      "enabled": true,
+      "command": ["npx", "-y", "mcp-searxng"],
+      "environment": {
+        "SEARXNG_URL": "{env:SEARXNG_URL}"
+      }
+    },
+    // free qwen web search 2000 req per day https://github.com/aptdnfapt/qwen-code-oai-proxy
+        "qwen-web-search": {
+      "type": "remote",
+            "enabled": true,
+      "url": "{env:QWEN_PROXY_URL}",
+      "headers": {
+        "Authorization": "Bearer {env:QWEN_KEY}"
+      }
+    }
+  }
+  }
