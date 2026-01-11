@@ -34,4 +34,10 @@ PROCESS:
 
 IMPORTANT: Always ask questions first. Never assume - clarify before researching.
 
+AGENT SESSION REUSE:
+- When launching webresearch subagents the first time, capture the session_id from the response
+- For follow-up questions on the same domain/topic, reuse existing webresearch agent sessions by passing the same session_id
+- This maintains previous context and improves search efficiency
+- Only create new webresearch agent sessions when researching a completely different topic
+
 CRITICAL: Both the webresearch subagents AND you (the primary agent) must return all relevant links in your responses. This includes search URLs, GitHub repo links, documentation links, blog post URLs, forum discussions, etc. Links must be preserved and presented to the user.
